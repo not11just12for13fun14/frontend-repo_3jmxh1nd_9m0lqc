@@ -42,7 +42,10 @@ export default function SolarScene() {
   return (
     <section ref={ref} className="relative h-[280vh]">
       <div className="sticky top-0 h-screen overflow-hidden">
-        {/* Sky gradient (orange brand to night) */}
+        {/* Base gradient to guarantee visible background even if animations fail */}
+        <div className="absolute inset-0 bg-gradient-to-b from-orange-400 via-orange-500/70 to-indigo-950" />
+
+        {/* Animated sky gradient (orange brand to night) */}
         <motion.div
           className="absolute inset-0"
           style={{ background: skyFrom.to((from) => `linear-gradient(to bottom, ${from}, ${skyTo.get()})`) }}
@@ -59,6 +62,12 @@ export default function SolarScene() {
 
         {/* Darkness overlay */}
         <motion.div className="absolute inset-0 bg-black" style={{ opacity: darkness }} />
+
+        {/* Top intro so there's always visible text */}
+        <div className="absolute top-6 left-1/2 -translate-x-1/2 text-center px-6">
+          <h1 className="text-2xl md:text-4xl font-bold">Photovoltaik – Tag zu Nacht</h1>
+          <p className="text-slate-200/90 text-sm md:text-base mt-1">Scrolle nach unten: Sonne → Dämmerung → Mond & Sterne. Panel lädt am Tag, Strom fließt in der Nacht.</p>
+        </div>
 
         {/* Sun */}
         <motion.div
