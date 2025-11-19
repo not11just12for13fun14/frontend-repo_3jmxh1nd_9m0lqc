@@ -105,7 +105,7 @@ export default function SolarScene() {
         {/* Optional 3D Spline highlight during midday */}
         <motion.div className="absolute inset-x-0 top-[15%] mx-auto w-[900px] max-w-[92vw] h-[360px]" style={{ opacity: splineOpacity }}>
           <div className="rounded-2xl overflow-hidden border border-white/10 bg-black/20 backdrop-blur-sm w-full h-full">
-            <Suspense fallback={<div className=\"w-full h-full grid place-items-center text-white/70\">Lädt 3D…</div>}>
+            <Suspense fallback={<div className="w-full h-full grid place-items-center text-white/70">Lädt 3D…</div>}>
               <Spline
                 scene="https://prod.spline.design/YG0cF5pSg0Qm0F0o/scene.splinecode"
               />
